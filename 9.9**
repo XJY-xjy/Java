@@ -1,0 +1,71 @@
+package hhhh;
+
+public class one {
+	private int n=3;//边长
+	private double side=1;//边长
+	private double x=0;
+	private double y=0;//x，y为多边形中点的x，y坐标
+	one(){
+	}
+	one(int newN,int newS){
+		n=newN;
+		side=newS;
+		x=0;
+		y=0;
+	}
+	one(int newN,int newS,double newX,double newY){
+		n=newN;
+		side=newS;
+		x=newX;
+		y=newY;
+	}
+	public void setN(int newN){
+		n=newN;
+	}
+	public void setSide(double newS){
+		side=newS;
+	}
+	public void setX(int newX){
+		x=newX;
+	}
+	public void setY(int newY){
+		y=newY;
+	}
+	public int getN(){
+		return n;
+	}
+	public double getSide(){
+		return side;
+	}
+	public double getX(){
+		return x;
+	}
+	public double getY(){
+		return y;
+	}
+	public double getPerimeter(){
+		return n*side;
+	}
+	public double getArea(){
+		return (n*side*side)/(4*Math.tan(getPerimeter()/n));
+	}
+	}
+
+
+
+package hhhh;
+
+public class XiTi89 {
+	public static void main(String[] args) {
+		one r1=new one();
+		System.out.println(r1);
+		System.out.println("对象一周长："+r1.getPerimeter()+" 面积："+r1.getArea());
+	    
+		one r2=new one(6,4);
+		System.out.println("对象二周长："+r2.getPerimeter()+" 面积："+r2.getArea());
+		
+		one r3=new one(10,4,5.6,7.8);
+		System.out.println("对象三周长："+r3.getPerimeter()+" 面积："+r3.getArea());
+	}
+
+}
