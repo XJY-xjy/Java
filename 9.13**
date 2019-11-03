@@ -1,0 +1,57 @@
+package hhhh;
+
+import java.util.Scanner;
+class Location
+{
+    public int row,col;
+    public double maxValue;
+    //构造函数
+    Location(){}
+    Location(int r,int c,double mv){
+        row=r;
+        col=c;
+        maxValue=mv;
+    }
+    //找最大的位置
+    public static Location locateLargest(double [][]a){
+        double maxValue=a[0][0];
+        int row=0,col=0;
+        for(int i=0;i<a.length;i++){
+            for(int j=0;j<a[i].length;j++){
+                if(a[i][j]>maxValue){
+                    row=i;
+                    col=j;
+                    maxValue=a[i][j];
+                }
+            }
+        }
+        Location lo=new Location(row,col,maxValue);
+        return lo;
+    }
+}
+
+public class LocationMax {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        Location l=new Location();
+        System.out.println("请输入数组的行数：");
+        int r=input.nextInt();
+        double [][]a=new double[r][];
+        //因为数组可能不规则，所以对每行都要确定一个列数
+        for(int i=0;i<r;i++){
+            System.out.println("请输入数组第"+i+"行的列数：");
+            int c=input.nextInt();
+            a[i]=new double[c];
+        }
+        System.out.println("请输入数组");
+        for(int i=0;i<r;i++){
+            for(int j=0;j<a[i].length;j++){
+                a[i][j]=input.nextDouble();
+            }
+        }
+        l=l.locateLargest(a);
+        System.out.println("行:"+l.row);
+        System.out.println("列:"+l.col);
+        System.out.println("最大值:"+l.maxValue);
+    }
+}
