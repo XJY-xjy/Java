@@ -1,0 +1,31 @@
+package hhhh;
+
+import java.util.Scanner;
+
+public class Add {
+	public static void main(String[] args){
+		int number1=(int)(Math.random()*10);
+		int number2=(int)(Math.random()*10);
+		
+		//Create a Scanner
+		Scanner input =new Scanner(System.in);
+		
+		System.out.print("What is "+number1+" + "+number2+"? ");
+		int answer = input.nextInt();
+		int []score=new int[answer];
+		int ss=1;
+		
+		while(number1+number2!= answer){
+			score[ss]=answer;
+			for(int i=1;i<ss;i++){
+				if(answer==score[i]){
+					System.out.println("You already entered "+answer);
+				}
+			}
+			ss=ss+1;
+			System.out.print("Wrong answer.Try again.What is"+number1+" + "+number2+"? ");
+			answer=input.nextInt();
+		}
+		System.out.println("You got it!");
+	}
+}
