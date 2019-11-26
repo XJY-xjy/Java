@@ -1,0 +1,36 @@
+package hhhh;
+
+import java.util.Arrays;
+import java.util.Scanner;
+ 
+public class Myclass {
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter the integers between 1 and 100: ");
+		int[] f = new int[101];
+		for(int i=0;i<f.length;i++){
+			
+			f[i] = input.nextInt();
+			if(f[i] == 0)
+				break;
+		}
+		Arrays.sort(f);
+		
+		int count;
+		for(int i=0;i<f.length;i++){
+			count=1;
+			if(f[i]==0||f[i]>100||f[i]<0)
+				continue;
+			for(int j=i+1;j<f.length;j++){
+				if(f[j]==f[i]){
+					count++;
+					f[j]=0;
+				}
+			}
+			if(count > 1)
+				System.out.println(f[i]+" occurs "+count+" times");
+			else
+				System.out.println(f[i]+" occurs "+count+" time");
+		}
+	}
+}
