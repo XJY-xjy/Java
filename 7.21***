@@ -1,0 +1,67 @@
+package hhhh;
+
+import java.util.Scanner;
+
+public class BeanMachine {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the numbers of balls to drop:");
+        int key = input.nextInt();
+        System.out.print("Enter the numbers of slots in the bean machine:");
+        System.out.println();
+        int hole = input.nextInt();
+        char[] judgement = new char[hole - 1];
+        int[] slots = new int[hole];
+ 
+        for (int i = 0; i < key; i++) {
+            int sum = 0;
+            for (int j = 0; j < hole - 1; j++) {
+                double x = Math.random() * 2.0 - 1;
+                if (x < 0) judgement[j] = 'L'; 
+                else if (x > 0) judgement[j] = 'R';
+                else {
+                    double y = Math.random() * 2.0 - 1;
+                    if (y < 0) judgement[j] = 'L';
+                    else if (y > 0) judgement[j] = 'R';
+                }
+            }
+ 
+            for (int n = 0; n < hole - 1; n++) {
+ 
+                if (judgement[n] == 'R')
+                {
+                    sum++;
+                }
+ 
+            }
+            slots[sum]++;
+ 
+           
+            System.out.println(judgement);
+ 
+        }
+ 
+        int numberOfSlots = max(slots);
+ 
+        for (int o = 0; o < numberOfSlots; o++) {
+            for (int j = 0; j < hole; j++) {
+                if (slots[j] == numberOfSlots - o) {
+                    System.out.print('0');
+                    slots[j]--;
+                } else
+                    System.out.print(' ');
+                }
+                System.out.println();
+            }
+        }
+ 
+    public static int max(int[]num){
+        int maxNum = 0;
+        for(int i = 0;i < num.length;i++){
+            if(num[i] > maxNum)
+                maxNum = num[i];
+        }
+        return maxNum;
+    }
+ 
+}
