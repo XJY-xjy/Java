@@ -1,0 +1,25 @@
+package hhhh;
+
+import java.util.Scanner;
+	 
+public class Huafen {
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+		int[] f = new int[101];
+		int m=input.nextInt();
+		int zd;
+		for(int i=0;i<m;i++){
+			f[i] = input.nextInt();
+		}
+		zd=f[0];
+		for(int i=1;i<m;i++){
+			if(f[i]<=zd)
+				System.out.print(f[i]+" ");
+		}
+		System.out.print(zd+" ");
+		for(int i=1;i<m;i++){
+			if(f[i]>zd)
+				System.out.print(f[i]+" ");
+		}
+	}
+}
